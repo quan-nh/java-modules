@@ -25,6 +25,11 @@ $ jlink --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --output c
 $ du -sh customjre
  38M	customjre
 
+$ jlink --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --strip-debug --no-man-pages --no-header-files --compress=2 --output customjre
+
+$ du -sh customjre
+ 24M	customjre
+
 # run the app with the Generated Image
 $ cd customjre
 $ bin/java --module jlinkModule/hello.jlink.HelloWorld
