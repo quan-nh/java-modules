@@ -13,6 +13,13 @@ FIXME: description
     # creates a tarball for previously generated JRE and can be distributed without dependencies
     $ lein jlink package
 
+## Docker
+
+    $ docker build -t clj-jlink .
+    $ docker images |grep jlink
+
+    clj-jlink   ...      49.9MB
+
 ## License
 
 Copyright © 2019 FIXME
