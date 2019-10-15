@@ -25,7 +25,13 @@ $ jlink --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --output c
 $ du -sh customjre
  38M	customjre
 
-$ jlink --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --strip-debug --no-man-pages --no-header-files --compress=2 --output customjre
+$ jlink --module-path %JAVA_HOME%\jmods:out \
+        --add-modules jlinkModule \
+        --strip-debug \
+        --no-man-pages \
+        --no-header-files \
+        --compress=2 \
+        --output customjre
 
 $ du -sh customjre
  24M	customjre
@@ -37,7 +43,11 @@ $ bin/java --module jlinkModule/hello.jlink.HelloWorld
 
 ### Create Custom JRE with Launcher Scripts
 ```sh
-$ jlink --launcher customjrelauncher=jlinkModule/hello.jlink.HelloWorld --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --output customjre
+$ jlink --launcher customjrelauncher=jlinkModule/hello.jlink.HelloWorld \
+        --module-path %JAVA_HOME%\jmods:out \
+        --add-modules jlinkModule \ 
+        --output customjre
+        
 # run the script
 $ customjre/bin/customjrelauncher
 ```
