@@ -20,7 +20,9 @@ jlinkModule -> java.logging
 
 ### Create a Custom JRE
 ```sh
-$ jlink --module-path %JAVA_HOME%\jmods:out --add-modules jlinkModule --output customjre
+$ jlink --module-path %JAVA_HOME%\jmods:out
+        --add-modules jlinkModule
+        --output customjre
 
 $ du -sh customjre
  38M	customjre
@@ -43,11 +45,11 @@ $ bin/java --module jlinkModule/hello.jlink.HelloWorld
 
 ### Create Custom JRE with Launcher Scripts
 ```sh
-$ jlink --launcher customjrelauncher=jlinkModule/hello.jlink.HelloWorld \
+$ jlink --launcher hello-jlink=jlinkModule/hello.jlink.HelloWorld \
         --module-path %JAVA_HOME%\jmods:out \
         --add-modules jlinkModule \ 
         --output customjre
         
 # run the script
-$ customjre/bin/customjrelauncher
+$ customjre/bin/hello-jlink
 ```
